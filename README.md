@@ -21,7 +21,7 @@ Mit den folgenden Erläuterungen könnt ihr die Übungen nochmal alleine wiederh
 
 Der Ordner [/apps](/apps) enthält drei Beispielanwendungen, auf die unsere Reverse Proxies später lenken sollen:
 
-- [todo-list](https://github.com/docker/getting-started/tree/master/app)
+- [todo-list](https://docs.microsoft.com/en-us/visualstudio/docker/tutorials/your-application)
 - [bulletin-board](https://github.com/dockersamples/node-bulletin-board/tree/master/bulletin-board-app)
 - [cats](https://github.com/docker/labs/tree/master/beginner/flask-app)
 
