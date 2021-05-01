@@ -1,33 +1,36 @@
-version: '3'
 services:
-  
-  traefik:
-    container_name: traefik
-    image: traefik:v2.4
-    command:
-      - "--api.insecure=true"
-      - "--providers.docker"
-      - "--providers.docker.exposedbydefault=false"
-    ports:
-      - "80:80"
-      - "8080:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
   todo-list:
     container_name: todo-list
     build: ../../apps/todo-list
     ports:
-      - 3000:3000
+      - "3000:3000"
     labels:
-      - traefik.enable=true
       - "traefik.http.routers.todo-list.rule=Host(`todo.localhost`)"
+
+  bulletin-board:
+    container_name: bulletin-board
+    build: ../../apps/bulletin-board
+    ports:
+      - "4000:8080"
+    labels:
+      - "traefik.http.routers.bulletin-board.rule=Host(`bulletin.localhost`)"    
 
   cats:
     container_name: cats
-    build: ../../apps/flask-app
+    build: ../../apps/cats
     ports:
       - "5000:5000"
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.cats.rule=Host(`cats.localhost`) 
+      - "traefik.http.routers.cats.rule=Host(`cats.localhost`)"  
+
+  traefik:
+    image: traefik:v2.4
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock      

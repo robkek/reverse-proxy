@@ -1,5 +1,23 @@
 services:
 
+  todo-list:
+    container_name: todo-list
+    build: ../../apps/todo-list
+    ports:
+      - "3000:3000"
+
+  bulletin-board:
+    container_name: bulletin-board
+    build: ../../apps/bulletin-board
+    ports:
+      - "4000:8080"
+
+  cats:
+    container_name: cats
+    build: ../../apps/cats
+    ports:
+      - "5000:5000"
+
   nginx:
     container_name: nginx
     hostname: nginx
@@ -7,17 +25,5 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ../static-content:/usr/share/nginx/html:ro
-      - ../config/nginx.conf:/etc/nginx/nginx.conf:ro
-
-  todo-list:
-    container_name: todo-list
-    build: ../../apps/todo-list
-    ports:
-      - "3000:3000"
-
-  cats:
-    container_name: cats
-    build: ../../apps/flask-app
-    ports:
-      - "5000:5000"
+      - ../html:/usr/share/nginx/html:ro
+      - ../config/nginx_v3.conf:/etc/nginx/nginx.conf:ro

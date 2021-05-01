@@ -1,31 +1,19 @@
 services:
 
-  wordpress:
-    image: wordpress
-    restart: always
+  todo-list:
+    container_name: todo-list
+    build: ../../apps/todo-list
     ports:
-      - "8080:80"
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: lemonron
-      WORDPRESS_DB_PASSWORD: supersecurepassword
-      WORDPRESS_DB_NAME: wordpress
-    volumes:
-      - ../../apps/wordpress/html:/var/www/html
+      - "3000:3000"
 
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: lemonron
-      MYSQL_PASSWORD: supersecurepassword
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
-    volumes:
-      - ../../apps/wordpress/db:/var/lib/mysql
+  bulletin-board:
+    container_name: bulletin-board
+    build: ../../apps/bulletin-board
+    ports:
+      - "4000:8080"
 
   cats:
     container_name: cats
-    build: ../../apps/flask-app
+    build: ../../apps/cats
     ports:
       - "5000:5000"
