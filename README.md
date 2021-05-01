@@ -155,5 +155,5 @@ v3 ist eine Übung für euch. Kopiert euch den Ordner [v2](/traefik/v2) und prob
 - [ngx_http_proxy_module](https://nginx.org/en/docs/http/ngx_http_proxy_module.html)
 - [Traefik Dokumentation](https://doc.traefik.io/traefik/)
 - [Docker Hub](https://hub.docker.com)
-- [https://docker-curriculum.com/](Docker Curriculum)
+- [Docker Curriculum](https://docker-curriculum.com/)
 - [Docker run to docker-compose converter](https://8gwifi.org/dc1.jsp)
